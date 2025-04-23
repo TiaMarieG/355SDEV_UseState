@@ -31,9 +31,10 @@ function Restaurant(props) {
       {/* If hours is true, display the hours of the restaurant */}
       {hours && (
         <ul>
-          {props.restaurant.hours.map((day, time) => (
+          {/* Had to look at solution to get this to work. I'm guessing we have to use Object.entries because the days/times are an object in the array */}
+          {Object.entries(props.restaurant.hours).map(([day, time]) => (
             <li key={day}>
-              {day.day}: {time.open} - {time.close}
+              {day}: {time}
             </li>
           ))}
         </ul>
