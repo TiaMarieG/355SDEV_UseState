@@ -27,6 +27,18 @@ function Restaurant(props) {
       </ul>
       {/* Adding onClick event handlers to the buttons that will display the hours and menu of the restaurant when clicked */}
       <button onClick={handleHours}>Hours</button>
+
+      {/* If hours is true, display the hours of the restaurant */}
+      {hours && (
+        <ul>
+          {props.restaurant.hours.map((day, time) => (
+            <li key={day}>
+              {day.day}: {time.open} - {time.close}
+            </li>
+          ))}
+        </ul>
+      )}
+        
       <button onClick={handleMenu}>Menu</button>
 
     </div>
