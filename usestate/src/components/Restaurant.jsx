@@ -41,7 +41,16 @@ function Restaurant(props) {
       )}
         
       <button onClick={handleMenu}>Menu</button>
-
+      {menu && (
+        <ul>
+          {/* This didn't need Object.entries. I'm guessing because array of objects to, the flip of hours */}
+          {props.restaurant.menu.map((item, index) => (
+            <li key={index}>
+              {`${item.item}: $${item.price}`}
+            </li>
+          ))}      
+        </ul>
+      )}
     </div>
   );
 }
